@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from informacion.models import Post
 
 def informacion(request):
 
-    return render(request, "informacion/informacion.html")
+    posts = Post.objects.all()
+
+    return render(request, "informacion/informacion.html", {"posts": posts})
 

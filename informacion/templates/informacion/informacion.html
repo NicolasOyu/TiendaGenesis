@@ -3,5 +3,44 @@
 {% load static %}
 
 {% block content %}
-    <p>Esta es la Pagina de Informacion</p>
-{% endblock %}
+<div class="informacion-page">
+
+  {% for post in posts %}
+<section class="py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 gc-wrap">
+        <div class="row g-0 align-items-center gc-card">
+
+          {# alternar lados: pares mueven la imagen a la derecha #}
+          {% with is_even=forloop.counter|divisibleby:2 %}
+
+            <!-- Imagen -->
+            <div class="col-12 col-md-6 gc-img {% if is_even %}order-md-2{% endif %}">
+              {% if post.imagen %}
+                <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}">
+              {% else %}
+                <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25">
+                  <span class="text-light-50">Sin imagen</span>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Columna de texto; el panel es compacto y “pegado” a la imagen -->
+            <div class="col-12 col-md-6 d-flex {% if is_even %}order-md-1 justify-content-md-end{% endif %}">
+              <div class="gc-panel gc-panel-compact my-3 my-md-0">
+                <h2 class="h4 gc-title mb-3">{{ post.titulo }}</h2>
+                <p class="gc-text mb-0">{{ post.contenido }}</p>
+              </div>
+            </div>
+
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endfor %}
+
+</div>
+{% endblock %} 

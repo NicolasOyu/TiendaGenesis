@@ -43,3 +43,30 @@ h1{
 
 
 /**My Styles**/
+
+/* ===== Página Información (CSS Nesting) ===== */
+.informacion-page {
+  .gc-wrap { max-width: 980px; margin-inline: auto; }
+  .gc-card { border-radius: 16px; overflow: hidden; box-shadow: 0 12px 28px rgba(0,0,0,.35); }
+
+  .gc-img { height: 360px;
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  }
+
+  /* panel compacto, pegado a la imagen */
+  .gc-panel {
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+  }
+  .gc-panel-compact { padding: 1.75rem 2rem; max-width: 520px; }
+
+  .gc-title { color:#fff; font-weight:700; letter-spacing:.3px; }
+  .gc-text  { color:#e9ecef; }
+
+  @media (min-width: 992px) {
+    .gc-img { height: 460px; }
+    .gc-panel-compact { padding: 2rem 2.5rem; }
+  }
+}
