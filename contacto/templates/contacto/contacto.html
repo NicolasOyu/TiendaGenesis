@@ -1,0 +1,25 @@
+{% extends "TiendaGenesisApp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if request.GET.ok == '1' %}
+  <div class="alert alert-success contacto-alert" role="alert">
+    ¡Tu mensaje se envió correctamente!
+  </div>
+{% elif request.GET.ok == '0' %}
+  <div class="alert alert-danger contacto-alert" role="alert">
+    No se pudo enviar el mensaje. Intenta de nuevo.
+  </div>
+{% endif %}
+
+  <div class="container py-4">
+    <form action="" method="POST" class="contacto-form">
+      {% csrf_token %}
+      <table class="containerFormulario">{{ formulario.as_table }}</table>
+      <div class="text-center mt-3">
+        <input type="submit" value="Enviar" class="contacto-submit">
+      </div>
+    </form>
+  </div>
+{% endblock %}

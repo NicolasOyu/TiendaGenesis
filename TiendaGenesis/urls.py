@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('TiendaGenesisApp.urls')),
     path('informacion/', include('informacion.urls')),
+    path('contacto/', include('contacto.urls')),
 ]

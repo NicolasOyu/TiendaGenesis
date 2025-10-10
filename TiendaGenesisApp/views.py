@@ -12,6 +12,3 @@ def tienda(request):
 
     return render(request, "TiendaGenesisApp/tienda.html")
 
-def contacto(request):
-
-    return render(request, "TiendaGenesisApp/contacto.html")
