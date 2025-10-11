@@ -1,10 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
 class Categoria(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=50, validators=[RegexValidator(
+    regex=r"^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ' -]+$",
+    message="Solo se permiten letras, espacios, guiones y apóstrofes."
+)])
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
