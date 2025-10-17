@@ -8,7 +8,3 @@ def home(request):
 
     return render(request, "TiendaGenesisApp/home.html")
 
-def tienda(request):
-
-    return render(request, "TiendaGenesisApp/tienda.html")
-
